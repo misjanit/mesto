@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel='stylesheet' href="index.css">
+    <title>Mesto</title>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <section class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form" name="form" action="/">
+                    <input class="popup__input" type="text" id="username" name="username" value="" />
+                    <input class="popup__input" type="text" id="description" name="description" value="" />
+                    <button class="popup__save-button" type="submit">Сохранить</button>
+                </form>
+                <button class="popup__close-button" type="button"></button>
+            </div>
+        </section>
+
+        <header class="header">
+            <img src="images/Logo.svg" class="header__logo" alt="Логотип">
+        </header>
+
+        <main class="content">
+
+            <section class="profile">
+                <div class="profile__info">
+                    <img src="images/Avatar.jpg" class="profile__avatar" alt="Аватар">
+                    <div class="profile__card">
+                        <div class="profile__rename">
+                            <h3 class="profile__name">Жак-Ив Кусто</h3>
+                            <button class="profile__edit-button"></button>
+                        </div>
+                        <p class="profile__description">Исследователь океана</p>
+                    </div>
+                    <button class="profile__add-button"></button>
+                </div>
+            </section>
+
+            <section class="elements">
+
+                <article class="element">
+                    <img src="images/Karachaevsk.jpg" class="element__image" alt="Карачаевск">
+                    <div class="element__description">
+                        <h3 class="element__title">Карачаевск</h3>
+                        <div class="element__like"></div>
+                    </div>
+                </article>
+
+                <article class="element">
+                    <img src="images/Elbrus.jpg" class="element__image" alt="Гора Эльбрус">
+                    <div class="element__description">
+                        <h3 class="element__title">Гора Эльбрус</h3>
+                        <div class="element__like"></div>
+                    </div>
+                </article>
+
+                <article class="element">
+                    <img src="images/Dombai.jpg" class="element__image" alt="Домбай">
+                    <div class="element__description">
+                        <h3 class="element__title">Домбай</h3>
+                        <div class="element__like"></div>
+                    </div>
+                </article>
+
+                <article class="element">
+                    <img src="images/Elbrus.jpg" class="element__image" alt="Гора Эльбрус">
+                    <div class="element__description">
+                        <h3 class="element__title">Гора Эльбрус</h3>
+                        <div class="element__like"></div>
+                    </div>
+                </article>
+
+                <article class="element">
+                    <img src="images/Dombai.jpg" class="element__image" alt="Домбай">
+                    <div class="element__description">
+                        <h3 class="element__title">Домбай</h3>
+                        <div class="element__like"></div>
+                    </div>
+                </article>
+
+                <article class="element">
+                    <img src="images/Karachaevsk.jpg" class="element__image" alt="Карачаево-Черкессия">
+                    <div class="element__description">
+                        <h3 class="element__title">Карачаево-Черкессия</h3>
+                        <div class="element__like"></div>
+                    </div>
+                </article>
+
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p class="footer__description">&copy; 2020 Mesto Russia</p>
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

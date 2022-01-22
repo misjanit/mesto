@@ -1,0 +1,15 @@
+.element__like {
+    max-width: 22px;
+    max-height: 19px;
+    width: 100%;
+    height: 100%;
+    margin: 30px 20px 30px auto;
+    cursor: pointer;
+    background-image: url(../../../images/Vector-heart.svg);
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.element__like:hover {
+    opacity: 0.6;
+}

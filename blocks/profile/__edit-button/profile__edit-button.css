@@ -1,7 +1,7 @@
 .profile__edit-button {
     min-width: 24px;
     margin: 16px 0px 17px 18px;
-    background-color: black;
+    background-color: transparent;
     border: 1px solid white;
     background-image: url(../../../images/Vector-edit.svg);
     background-repeat: no-repeat;
@@ -13,9 +13,9 @@
     opacity: 0.6;
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 600px) {
     .profile__edit-button {
         min-width: 18px;
-        margin: 9px 0px 14px 10px;
+        margin: 8px 19px 15px 0px;
     }
 }

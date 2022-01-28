@@ -12,7 +12,6 @@ const popupDescription = document.getElementById('description');
 popupButton.addEventListener('click', openPopup);
 
 function openPopup() {
-    page.classList.add('page_popup-on');
     popup.classList.add('popup_opened');
     popupName.value = profileName.textContent;
     popupDescription.value = profileDescription.textContent;
@@ -21,7 +20,6 @@ function openPopup() {
 buttonClose.addEventListener('click', closePopup);
 
 function closePopup() {
-    page.classList.remove('page_popup-on');
     popup.classList.remove('popup_opened');
 }
 

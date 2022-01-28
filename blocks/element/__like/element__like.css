@@ -7,9 +7,10 @@
     cursor: pointer;
     background-image: url(../../../images/Vector-heart.svg);
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: transparent;
+    border: none;
 }
 
 .element__like:hover {
-    opacity: 0.6;
+    opacity: 0.5;
 }

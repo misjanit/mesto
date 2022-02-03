@@ -1,0 +1,6 @@
+.element__delete-button {
+    max-width: 18px;
+    width: 100%;
+    z-index: 2;
+    border: 1px solid red;
+}

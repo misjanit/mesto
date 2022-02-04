@@ -1,8 +1,10 @@
 const popupEditProfile = document.getElementById('popup-edit-profile');
 const buttonClose = document.getElementById('close-edit-popup');
 const buttonCloseCardPopup = document.getElementById('close-card-popup');
+const buttonCloseWindowPopup = document.getElementById('close-window-popup');
 const popupButton = document.querySelector('.profile__edit-button');
 const popupForm = document.getElementById('popup-profile-form');
+const popupModal = document.getElementById('popup-modal');
 
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
@@ -28,10 +30,12 @@ function openPopupNewCard() {
 
 buttonClose.addEventListener('click', closePopup); // Закрытие PopUp профиля
 buttonCloseCardPopup.addEventListener('click', closePopup); // Закрытие PopUp карточки
+buttonCloseWindowPopup.addEventListener('click', closePopup); // Закрытие PopUp модального окна
 
 function closePopup() {
     popupNewCard.classList.remove('popup_opened');
     popupEditProfile.classList.remove('popup_opened');
+    popupModal.classList.remove('popup_opened');
 }
 
 // Записать введенные значения из PopUp в профиль
@@ -103,7 +107,9 @@ function addNewCard(card) {
     openModal.addEventListener('click', function (evt) {
         let openPopupModal = document.getElementById('popup-modal');
         openPopupModal.classList.add('popup_opened');
-        
+
+        let popupImage = document.querySelector('.popup__image');
+        popupImage.src = elementImage;
     }
     );
 

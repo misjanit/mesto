@@ -95,9 +95,17 @@ function addNewCard(card) {
 
     const element = newElement.querySelector('.element');
     const elementTitle = newElement.querySelector('.element__title').textContent = card.name;
+    const openModal = newElement.getElementById('open-modal');
     const elementImage = newElement.querySelector('.element__image').src = card.link;
     const elementLike = newElement.querySelector('.element__like');
     const deleteCard = newElement.getElementById('delete-card');
+
+    openModal.addEventListener('click', function (evt) {
+        let openPopupModal = document.getElementById('popup-modal');
+        openPopupModal.classList.add('popup_opened');
+        
+    }
+    );
 
     elementLike.addEventListener('click', function (evt) {
         evt.target.classList.toggle('element__like_active');
@@ -106,6 +114,8 @@ function addNewCard(card) {
     deleteCard.addEventListener('click', function (event) {
         event.target.closest('.element').remove();
     });
+
+
 
     return newElement; // возвращает готовую карточку
 

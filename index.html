@@ -36,7 +36,9 @@
 
                 <article class="element">
                     <div class="element__container">
-                        <img src="" class="element__image element__image-window" alt="">
+                        <button class="element__modal" id="open-modal" type="button">
+                            <img src="" class="element__image element__image-window" alt="">
+                        </button>
                         <button id="delete-card" class="element__delete-container" type="button">
                             <img src="/images/Korzina-verh.png" class="element__delete-icon-up">
                             <img src="/images/Korzina-niz.png" class="element__delete-icon-down">
@@ -80,6 +82,12 @@
                 <button class="popup__save-button" id="popup-card-save" type="submit">Сохранить</button>
             </form>
             <button class="popup__close-button" id="close-card-popup" type="button"></button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-modal">
+        <div class="popup__container">
+            <img src="" class="popup__image">
         </div>
     </div>
 

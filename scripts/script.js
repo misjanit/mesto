@@ -100,20 +100,22 @@ function addNewCard(card) {
     const elementLike = newElement.querySelector('.element__like');
     const deleteCard = newElement.getElementById('delete-card');
 
-    openModal.addEventListener('click', function (evt) {
+    openModal.addEventListener('click', function (evt) { // Открываем модальное окно при клике на картинку
         let openPopupModal = document.getElementById('popup-modal');
-        openPopupModal.classList.add('popup_opened');
+        openPopupModal.classList.add('popup_opened'); 
 
-        let popupImage = document.querySelector('.popup__image');
+        let popupImage = document.querySelector('.popup__image'); // Передаем нужную картинку в модальное окно
         popupImage.src = elementImage;
-    }
-    );
 
-    elementLike.addEventListener('click', function (evt) {
+        let popupDescription = document.querySelector('.popup__description');
+        popupDescription.textContent = elementTitle;
+    });
+
+    elementLike.addEventListener('click', function (evt) { // Ставим лайки, подписываемся на канал
         evt.target.classList.toggle('element__like_active');
     });
 
-    deleteCard.addEventListener('click', function (event) {
+    deleteCard.addEventListener('click', function (event) { // Удаляем карточки при клике на корзину
         event.target.closest('.element').remove();
     });
 

@@ -48,16 +48,13 @@ function submitProfileButtonReaction(evt) {
     closePopup();
 }
 
-
-/////////////////////////////////////////////////////////////////////////
-
 const popupCardForm = document.getElementById('popup-card-form'); // переменная формы с инпутами и кнопкой сохранить у PopUp-Card
 const popupCardTitle = document.getElementById('title'); // переменная инпута текста PopUp-Card
 const popupCardImage = document.getElementById('image'); // переменная инпута картинки PopUp-Card
 const elements = document.querySelector('.elements'); // переменная для контейнера где хранятся все карточки
 const template = document.getElementById('template'); // переменная заготовки карточки
 
-const initialCards = [
+const initialCards = [ // Массив
     {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -87,7 +84,6 @@ const initialCards = [
 function render(renderCards) {
     renderCards.forEach(showCard); // Выбираем каждый из объект из массива и передаем значения функции showCard
 }
-
 
 render(initialCards); // Запускаем функцию
 
@@ -121,21 +117,13 @@ function addNewCard(card) {
         event.target.closest('.element').remove();
     });
 
-
-
     return newElement; // возвращает готовую карточку
 
-    
-
 }
-
-///
 
 function showCard(newElement) {
     elements.prepend(addNewCard(newElement));
 }
-
-/////////////////////
 
 popupCardForm.addEventListener('submit', submitCardButtonReaction); // Добавление новой карточки на страницу
 
@@ -154,8 +142,3 @@ function submitCardButtonReaction(evt) {
 
     showCard(popupObject);
 }
-
-///////////////
-
-
-

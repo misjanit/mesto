@@ -1,3 +1,4 @@
+const popup = document.querySelector('.popup');
 const popupEditProfile = document.getElementById('popup-edit-profile');
 const buttonClose = document.getElementById('close-edit-popup');
 const buttonCloseCardPopup = document.getElementById('close-card-popup');
@@ -37,6 +38,12 @@ function closePopup() {
     popupEditProfile.classList.remove('popup_opened');
     popupModal.classList.remove('popup_opened');
 }
+
+popup.addEventListener('click', function(event) { // Закрытие любого PopUp при клике мимо него
+    if(!event.defaultPrevented) {
+      closePopup();
+    }
+  });
 
 // Записать введенные значения из PopUp в профиль
 popupForm.addEventListener('submit', submitProfileButtonReaction);

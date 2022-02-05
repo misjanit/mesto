@@ -101,13 +101,13 @@ function addNewCard(card) {
     const deleteCard = newElement.getElementById('delete-card');
 
     openModal.addEventListener('click', function (evt) { // Открываем модальное окно при клике на картинку
-        let openPopupModal = document.getElementById('popup-modal');
+        const openPopupModal = document.getElementById('popup-modal');
         openPopupModal.classList.add('popup_opened'); 
 
-        let popupImage = document.querySelector('.popup__image'); // Передаем нужную картинку в модальное окно
+        const popupImage = document.querySelector('.popup__image'); // Передаем нужную картинку в модальное окно
         popupImage.src = elementImage;
 
-        let popupDescription = document.querySelector('.popup__description');
+        const popupDescription = document.querySelector('.popup__description');
         popupDescription.textContent = elementTitle;
     });
 
@@ -129,7 +129,7 @@ function showCard(newElement) {
 
 popupCardForm.addEventListener('submit', submitCardButtonReaction); // Добавление новой карточки на страницу
 
-function submitCardButtonReaction(evt) {
+function submitCardButtonReaction(evt) { // Добавление карточки из PopUp
 
     evt.preventDefault();
 

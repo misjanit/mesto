@@ -37,7 +37,7 @@
                 <article class="element">
                     <div class="element__container">
                         <button class="element__modal" id="open-modal" type="button">
-                            <img src="/" class="element__image" alt="Фото">
+                            <img src="/" class="element__image" alt="">
                         </button>
                         <button id="delete-card" class="element__delete-container" type="button">
                             <img src="/images/Korzina-verh.png" class="element__delete-icon-up" alt="Удалить">
@@ -64,8 +64,8 @@
         <div class="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
             <form class="popup__form" id="popup-profile-form" name="form" action="/">
-                <input class="popup__input" type="text" id="username" name="username" value="" />
-                <input class="popup__input" type="text" id="description" name="description" value="" />
+                <input class="popup__input" type="text" id="username" placeholder="Имя" name="username" value="" />
+                <input class="popup__input" type="text" id="description" placeholder="Профессиональная деятельность" name="description" value="" />
                 <button class="popup__save-button" id="popup-profile-save" type="submit">Сохранить</button>
             </form>
             <button class="popup__close-button" id="close-edit-popup" type="button"></button>
@@ -88,7 +88,7 @@
     <div class="popup" id="popup-modal">
         <div class="popup__modal">
             <div class="popup__container popup__container_modal">
-                <img src="/" class="popup__image" alt="Фото">
+                <img src="/" class="popup__image" alt="">
                 <h3 class="popup__description"></h3>
             </div>
             <button class="popup__close-button" id="close-window-popup" type="button"></button>

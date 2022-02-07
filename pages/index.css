@@ -46,5 +46,7 @@
 @import url(../blocks/element/__delete-icon-up/element__delete-icon-up.css);
 @import url(../blocks/element/__delete-icon-down/element__delete-icon-down.css);
 
+@import url(../blocks/element/__trash/element__trash.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__description/footer__description.css);

@@ -62,10 +62,21 @@
     <div class="popup" id="popup-edit-profile">
         <div class="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <form class="popup__form" id="popup-profile-form" name="form" action="/">
-                <input class="popup__input" type="text" id="username" placeholder="Имя" name="username" value="" />
-                <input class="popup__input" type="text" id="description" placeholder="Профессиональная деятельность" name="description" value="" />
+            <form id="popup-profile-form" class="popup__form" novalidate name="form" action="/">
+
+                <input id="username" class="popup__input" type="text" placeholder="Имя" name="username" minlength="2"
+                    maxlength="40" required value="" />
+
+                <span id="error-username" class="popup__input-error"></span>
+
+                <input id="description" class="popup__input" type="text" id="description"
+                    placeholder="Профессиональная деятельность" name="description" minlength="2" maxlength="200"
+                    required value="" />
+
+                <span id="error-description" class="popup__input-error"></span>
+
                 <button class="popup__save-button" id="popup-profile-save" type="submit">Сохранить</button>
+
             </form>
             <button class="popup__close-button" id="close-edit-popup" type="button"></button>
         </div>
@@ -74,13 +85,22 @@
     <div class="popup" id="popup-new-card">
         <div class="popup__container">
             <h3 class="popup__title">Новое место</h3>
-            <form class="popup__form" id="popup-card-form" name="form" action="/">
-                <input class="popup__input" type="text" placeholder="Название" id="title" name="title" value="" />
-                <input class="popup__input" type="url" placeholder="Ссылка на картинку" id="image" name="image"
+            <form class="popup__form" id="popup-card-form" name="form" novalidate action="/">
+
+                <input id="title" class="popup__input" type="text" placeholder="Название" name="title" minlength="2"
+                    maxlength="40" required value="" />
+
+                <span id="error-title" class="popup__input-error"></span>
+
+                <input id="image" class="popup__input" type="url" placeholder="Ссылка на картинку" name="image" required
                     value="" />
-                <button class="popup__save-button" id="popup-card-save" type="submit">Сохранить</button>
+
+                <span id="error-image" class="popup__input-error"></span>
+
+                <button id="popup-card-save" class="popup__save-button"  type="submit">Сохранить</button>
+
             </form>
-            <button class="popup__close-button" id="close-card-popup" type="button"></button>
+            <button id="close-card-popup" class="popup__close-button" type="button"></button>
         </div>
     </div>
 

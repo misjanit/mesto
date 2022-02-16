@@ -165,12 +165,6 @@ function submitCardButtonReaction(evt) { // Добавление карточк�
 
 ///////// Спринт 6 //////////
 /*
-popup.addEventListener('click', function(event) {
-       if(event.target === event.currentTarget) {
-         closePopup();
-       }
-     });
-
 const checkInputValidity = (form, input) => {
     const errorMessage = form.querySelector(`#error-${input.id}`);
 
@@ -216,47 +210,28 @@ function formSubmit(event) {
     event.preventDefault();
 }
 //////////////////// */
-
-const formSubmit = (event, form) => {
-    event.preventDefault();
-    if (form.checkValidity()) {
-        form.reset();
-    }
-}
-
-const setInputValid = (inputErrorClass, errorMessage, input) => {
-    errorMessage.textContent = '';
-    input.classList.remove(inputErrorClass);
-}
-
-const setInputInvalid = (inputErrorClass, errorMessage, input) => {
-    errorMessage.textContent = input.validationMessage;
-    input.classList.add(inputErrorClass);
-}
-
-const disableButton = (disabledButtonClass, button) => {
-    button.setAttribute('disabled', '');
-    button.classList.add('popup__save-button-unactive');
-}
-const checkButtonValidity = (form, button) => {
-    if (form.checkValidity()) {
-        button.removeAttribute('disabled');
-        button.classList.remove('popup__save-button-unactive');
+const checkInputValidity = (formElement, input) => {
+    if (!input.validity.valid) {
+        showInputError(formElement, input, input.validationMessage);
     } else {
-
+        hideInputError(formElement, input);
     }
-}
+};
 
-function enableValidation() {
 
-    const form = Array.from(document.querySelectorAll('.popup__form')); // взяли массив всех форм
+const showInputError = (formElement, input, errorMessage) => {
+    const errorElement = formElement.querySelector(`.${input.id}-error`);
+    input.classList.add('popup__input_redline');
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add('popup__input-error');
+};
 
-    form.forEach((formElement) => {
-        formElement.addEventListener('submit', function (evt) {      // взяли каждую форму и на кнопку повесили обработчика
-            evt.preventDefault();
-        });
-    });
-}
+const hideInputError = (formElement, input) => {
+    const errorElement = formElement.querySelector(`.${input.id}-error`);
+    input.classList.remove('popup__input_redline');
+    errorElement.classList.remove('popup__input-error');
+    errorElement.textContent = '';
+};
 
 const setEventListeners = (formElement) => {
 
@@ -275,18 +250,28 @@ const setEventListeners = (formElement) => {
     checkButtonValidity(form, button);
 };
 
+function enableValidation() {
+
+    const form = Array.from(document.querySelectorAll('.popup__form')); // взяли массив всех форм
+
+    form.forEach((formElement) => {
+        formElement.addEventListener('submit', function (evt) {      // взяли каждую форму и на кнопку повесили обработчика
+            evt.preventDefault();
+        });
+    });
+}
+
+function hasInvalidInput(inputs) {
+    return inputs.some((input) => {
+      return !input.validity.valid;
+    });
+  }
+
 function toggleButtonState(inputs, button) {
     if (hasInvalidInput(inputs)) {
-        button.classList.add('popup__save-button');
+        button.classList.add('popup__save-button_unactive');
     } else {
-        button.classList.remove('popup__save-button');
+        button.classList.remove('popup__save-button_unactive');
     }
 }
 
-const checkInputValidity = (formElement, input) => {
-    if (!input.validity.valid) {
-        showInputError(formElement, input, input.validationMessage);
-    } else {
-        hideInputError(formElement, input);
-    }
-};

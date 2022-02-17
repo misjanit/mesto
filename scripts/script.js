@@ -212,22 +212,25 @@ function formSubmit(event) {
 //////////////////// */
 
 const checkInputValidity = (formElement, input) => {
-    if (input.validity.valid) {
+
+    if (!input.validity.valid) {
         showInputError(formElement, input, input.validationMessage);
     } else {
         hideInputError(formElement, input);
     }
 };
 
-const showInputError = (formElement, input, errorMessage) => {
-    const errorElement = formElement.querySelector(`#${input.id}-error`);
+const showInputError = (formElement, input) => {
+
+    const errorElement = formElement.querySelector(`#error-${input.id}`);
+
     input.classList.add('popup__input_redline');
-    errorElement.textContent = errorMessage;
+    errorElement.textContent = input.validationMessage;
     errorElement.classList.add('popup__input-error');
 };
 
 const hideInputError = (formElement, input) => {
-    const errorElement = formElement.querySelector(`#${input.id}-error`);
+    const errorElement = formElement.querySelector(`#error-${input.id}`);
     input.classList.remove('popup__input_redline');
     errorElement.classList.remove('popup__input-error');
     errorElement.textContent = '';

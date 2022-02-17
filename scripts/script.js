@@ -236,8 +236,6 @@ const hideInputError = (formElement, input) => {
     errorElement.textContent = '';
 };
 
-
-
 const setEventListeners = (formElement) => {
 
     const inputs = Array.from(formElement.querySelectorAll('.popup__input'));

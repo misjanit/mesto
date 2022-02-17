@@ -210,14 +210,14 @@ function formSubmit(event) {
     event.preventDefault();
 }
 //////////////////// */
+
 const checkInputValidity = (formElement, input) => {
-    if (!input.validity.valid) {
+    if (input.validity.valid) {
         showInputError(formElement, input, input.validationMessage);
     } else {
         hideInputError(formElement, input);
     }
 };
-
 
 const showInputError = (formElement, input, errorMessage) => {
     const errorElement = formElement.querySelector(`.${input.id}-error`);
@@ -233,6 +233,8 @@ const hideInputError = (formElement, input) => {
     errorElement.textContent = '';
 };
 
+
+
 const setEventListeners = (formElement) => {
 
     const inputs = Array.from(formElement.querySelectorAll('.popup__input'));
@@ -247,7 +249,6 @@ const setEventListeners = (formElement) => {
         });
     });
 
-    checkButtonValidity(form, button);
 };
 
 function enableValidation() {
@@ -257,15 +258,22 @@ function enableValidation() {
     form.forEach((formElement) => {
         formElement.addEventListener('submit', function (evt) {      // взяли каждую форму и на кнопку повесили обработчика
             evt.preventDefault();
+            return formElement;
         });
+        setEventListeners(formElement);
+        hideInputError(formElement);
+        showInputError(formElement);
+        checkInputValidity(formElement);
     });
 }
 
+enableValidation();
+
 function hasInvalidInput(inputs) {
     return inputs.some((input) => {
-      return !input.validity.valid;
+        return !input.validity.valid;
     });
-  }
+}
 
 function toggleButtonState(inputs, button) {
     if (hasInvalidInput(inputs)) {

@@ -211,6 +211,8 @@ function formSubmit(event) {
 }
 //////////////////// */
 
+
+
 const checkInputValidity = (formElement, input) => {
 
     if (!input.validity.valid) {
@@ -248,6 +250,7 @@ const setEventListeners = (formElement) => {
             toggleButtonState(inputs, button);
             checkInputValidity(formElement, input);
         });
+
     });
 
 };
@@ -264,8 +267,9 @@ function enableValidation() {
         setEventListeners(formElement);
         hideInputError(formElement);
         showInputError(formElement);
-        checkInputValidity(formElement);
+        checkInputValidity(formElement, input);
     });
+
 }
 
 enableValidation();
@@ -283,4 +287,3 @@ function toggleButtonState(inputs, button) {
         button.classList.remove('popup__save-button_unactive');
     }
 }
-

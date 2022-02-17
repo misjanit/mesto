@@ -220,14 +220,14 @@ const checkInputValidity = (formElement, input) => {
 };
 
 const showInputError = (formElement, input, errorMessage) => {
-    const errorElement = formElement.querySelector(`.${input.id}-error`);
+    const errorElement = formElement.querySelector(`#${input.id}-error`);
     input.classList.add('popup__input_redline');
     errorElement.textContent = errorMessage;
     errorElement.classList.add('popup__input-error');
 };
 
 const hideInputError = (formElement, input) => {
-    const errorElement = formElement.querySelector(`.${input.id}-error`);
+    const errorElement = formElement.querySelector(`#${input.id}-error`);
     input.classList.remove('popup__input_redline');
     errorElement.classList.remove('popup__input-error');
     errorElement.textContent = '';
@@ -238,7 +238,7 @@ const hideInputError = (formElement, input) => {
 const setEventListeners = (formElement) => {
 
     const inputs = Array.from(formElement.querySelectorAll('.popup__input'));
-    const button = formElement.querySelector('popup__save-button');
+    const button = formElement.querySelector('.popup__save-button');
 
     toggleButtonState(inputs, button);
 

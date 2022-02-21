@@ -176,11 +176,10 @@ openPopupNewCard.addEventListener('click', addNewCard);
 
 function addNewCard() {
     openPopup(popupNewCard);
-    popupCardForm.addEventListener('submit', submitCardButtonReaction);
-
 }
 
 /* Добавление карточки из PopUp */
+popupCardForm.addEventListener('submit', submitCardButtonReaction);
 
 function submitCardButtonReaction(evt) {
 

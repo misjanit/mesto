@@ -68,7 +68,7 @@ const enableValidation = (validation) => {
 
 // Проверить есть ли невалидные поля заполнения
 
-function hasInvalidInput(inputs) {
+function isInputInvalid(inputs) {
     return inputs.some((inputElement) => {
         return !inputElement.validity.valid;
     });
@@ -77,12 +77,12 @@ function hasInvalidInput(inputs) {
 // Включение и выключение кнопки submit
 
 function toggleButtonState(inputs, button, validation) {
-    if (hasInvalidInput(inputs)) {
+    if (isInputInvalid(inputs)) {
         button.classList.add(validation.inactiveButtonClass);
         button.setAttribute('disabled', true);
     } else {
         button.classList.remove(validation.inactiveButtonClass);
-        button.removeAttribute('disabled', true);
+        button.removeAttribute('disabled', '');
     }
 }
 

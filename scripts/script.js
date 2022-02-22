@@ -54,9 +54,8 @@ popups.forEach((popupCloseOverlay) => {
 /* Закрыть popup на Escape */
 
 function closePopupByEscape(evt) {
-    const popupOpened = document.querySelector('.popup_opened');
-
     if (evt.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
         closePopup(popupOpened);
     }
 }

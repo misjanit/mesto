@@ -3,8 +3,7 @@
 const elements = document.querySelector('.elements'); // переменная для контейнера где хранятся все карточки
 const popup = document.querySelector('.popup');
 const popupContainer = document.querySelector('.popup__container');
-const popupCloseButton = document.querySelector('.popup__close-button'); // Кнопка закрытия любого Popup
-const popupOpened = document.querySelector('.popup_opened'); 
+const popupCloseButton = document.querySelector('.popup__close-button'); // Кнопка закрытия любого Popup 
 
 /* Блок Profile */
 
@@ -55,6 +54,8 @@ popups.forEach((popupCloseOverlay) => {
 /* Закрыть popup на Escape */
 
 function closePopupByEscape(evt) {
+    const popupOpened = document.querySelector('.popup_opened');
+
     if (evt.key === 'Escape') {
         closePopup(popupOpened);
     }

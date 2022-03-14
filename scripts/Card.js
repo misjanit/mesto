@@ -1,21 +1,41 @@
-import { popupModal, popupImage, popupDescription, openPopup } from './Utils.js';
-
 export class Card {
-    constructor(data, cardTemplateSelector) {
-        this._cardTemplate = document.querySelector(cardTemplateSelector)
-        .content.querySelector('.template');
+    constructor(data, cardTemplate, handleCardClick) {
         this._name = data.name
         this._link = data.link
+
+        this._cardTemplate = cardTemplate;
+
+        this._handleCardClick = handleCardClick;
     }
 
-    _handlePreviewPicture = () => {
-        openPopup(popupModal);
+    _getTemplate() {
+        const elementCard = document.querySelector(this._cardTemplate).content.querySelector('.element').cloneNode(true);
+        return elementCard;
+    }
 
-        popupImage.src = this._elementImage;
-        popupImage.alt = this._elementImageAlt;
+    createCard() {
+        this._newElement = this._getTemplate();
+        this._element = this._newElement.querySelector('.element');
+        this._elementTitle = this._newElement.querySelector('.element__title');
+        this._elementImage = this._newElement.querySelector('.element__image');
+        this._elementLike = this._newElement.querySelector('.element__like');
+        this._deleteCard = this._newElement.querySelector('.element__trash');
 
-        popupDescription.textContent = this._elementTitle;
-    };
+        this._elementImage.src = this._link;
+        this._elementImage.alt = this._name;
+        this._elementTitle.textContent = this._name;
+
+        this._setEventListeners();
+
+        return this._newElement; // возвращает готовую карточку
+    }
+
+    _setEventListeners() {
+        this._elementImage.addEventListener('click', () => {this._handlePrewievPicture} );
+        this._elementLike.addEventListener('click', () => {this._handleLikeIcon} );
+        this._deleteCard.addEventListener('click', () => {this._handleDeleteCard} );
+
+    }
 
     _handleLikeIcon = () => {
         this._elementLike.classList.toggle('element__like_active');
@@ -24,29 +44,4 @@ export class Card {
     _handleDeleteCard = () => {
         this._cardTemplate.remove();
     };
-
-    _setEventListeners() {
-        this._openModal = this._cardTemplate.querySelector('#open-modal');
-        this._elementLike = this._cardTemplate.querySelector('.element__like');
-        this._deleteCard = this._cardTemplate.querySelector('#delete-card');
-
-        this._openModal.addEventListener('click', this._handlePreviewPicture);
-        this._elementLike.addEventListener('click', this._handleLikeIcon);
-        this._deleteCard.addEventListener('click', this._handleDeleteCard);
-    }
-
-    createCard() {
-
-        const newElement = template.content.cloneNode(true); // клонируем заготовку
-        const element = this._cardTemplate.querySelector('.element');
-        this._elementTitle = this._cardTemplate.querySelector('.element__title').textContent = this._name;
-        this._elementImage = this._cardTemplate.querySelector('.element__image').src = this._link;
-        this._elementImageAlt = this._cardTemplate.querySelector('.element__image').alt = this._name;
-        
-    
-        this._setEventListeners();
-
-        return newElement; // возвращает готовую карточку
-    }
-    
 }

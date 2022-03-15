@@ -6,7 +6,7 @@ import { elements, profileName, profileDescription, profileForm,
      openPopupNewCard, popupNewCard, popupCardForm,
      popupSubmitButton, popupCardTitle, popupCardImage,
      popups, popupDescription, popupImage, popupImageName, 
-     popupPreviewPicture } from './Constant.js';
+     popupPreviewPicture } from './constant.js';
 
 
 /* Валидация */

@@ -18,7 +18,7 @@ export const popupForm = document.querySelector('#popup-profile-form');
 export const openPopupNewCard = document.querySelector('.profile__add-button'); // Открытие popup новой карточки места
 export const popupNewCard = document.querySelector('#popup-new-card'); // Popup новой карточки места
 export const popupCardForm = document.querySelector('#popup-card-form'); // переменная формы с инпутами и кнопкой сохранить у PopUp-Card
-export const popupSubmitButton = document.querySelector('#popup-save-btn');
+export const popupSubmitButton = document.querySelector('.popup__save-button');
 export const popupCardTitle = document.querySelector('#title'); // переменная инпута текста PopUp-Card
 export const popupCardImage = document.querySelector('#image'); // переменная инпута картинки PopUp-Card
 

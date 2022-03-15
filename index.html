@@ -59,19 +59,13 @@
         <div class="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
             <form id="popup-profile-form" class="popup__form" novalidate name="form" action="/">
-
                 <input id="username" class="popup__input" type="text" placeholder="Имя" name="username" minlength="2"
                     maxlength="40" required value="" />
-
                 <span id="error-username" class="popup__input-error"></span>
-
                 <input id="description" class="popup__input" type="text" placeholder="Профессиональная деятельность"
                     name="description" minlength="2" maxlength="200" required value="" />
-
                 <span id="error-description" class="popup__input-error"></span>
-
-                <button class="popup__save-button" id="popup-save-btn" type="submit">Сохранить</button>
-
+                <button class="popup__save-button" type="submit">Сохранить</button>
             </form>
             <button class="popup__close-button" id="close-edit-popup" type="button"></button>
         </div>
@@ -87,7 +81,7 @@
                 <input id="image" class="popup__input" type="url" placeholder="Ссылка на картинку" name="image" required
                     value="" />
                 <span id="error-image" class="popup__input-error"></span>
-                <button id="popup-save-btn" class="popup__save-button" type="submit">Сохранить</button>
+                <button class="popup__save-button" type="submit">Сохранить</button>
             </form>
             <button id="close-card-popup" class="popup__close-button" type="button"></button>
         </div>

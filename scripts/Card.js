@@ -28,8 +28,6 @@ export class Card {
 
         this._setEventListeners();
 
-        console.log('test');
-
         return this._newElement; // возвращает готовую карточку
     }
 
@@ -40,11 +38,11 @@ export class Card {
     }
 
     _handleLikeIcon = () => {
-        console.log('work');
         this._elementLike.classList.toggle('element__like_active');
     };
 
     _handleDeleteCard() {
         this._newElement.remove();
+        this._newElement = null
     };
 }

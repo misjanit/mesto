@@ -1,5 +1,5 @@
 import { FormValidator } from './FormValidator.js';
-import { initialCards, settingsList } from './Utils.js';
+import { initialCards, settingsList } from './utils.js';
 import { Card } from './Card.js';
 import { elements, profileName, profileDescription, profileForm,
      popupEditProfile, openEditPopup, popupName, popupForm, 
@@ -58,10 +58,10 @@ function closePopupByEscape(evt) {
 openEditPopup.addEventListener('click', editPopupValue);
 
 function editPopupValue() {
-    editProfileValidator.toggleButtonState();
-    openPopup(popupEditProfile);
     popupName.value = profileName.textContent;
     popupDescription.value = profileDescription.textContent;
+    openPopup(popupEditProfile);
+    editProfileValidator.toggleButtonState();
 }
 
 /* Записать введенные значения из PopUp в профиль */
@@ -129,8 +129,7 @@ function submitCardButtonReaction(evt) {
         link: popupCardImage.value,
     };
 
-    popupSubmitButton.setAttribute('disabled', true);
-    popupSubmitButton.classList.add('popup__save-button_unactive');
+    addCardValidator.toggleButtonState()
 
     const cardFromPopup = createCard(popupObject);
     renderElement(cardFromPopup, elements);

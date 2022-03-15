@@ -1,40 +1,13 @@
 import { FormValidator } from './FormValidator.js';
 import { initialCards, settingsList } from './Utils.js';
 import { Card } from './Card.js';
+import { elements, profileName, profileDescription, profileForm,
+     popupEditProfile, openEditPopup, popupName, popupForm, 
+     openPopupNewCard, popupNewCard, popupCardForm,
+     popupSubmitButton, popupCardTitle, popupCardImage,
+     popups, popupDescription, popupImage, popupImageName, 
+     popupPreviewPicture } from './Constant.js';
 
-/* Общие классы */
-
-const elements = document.querySelector('.elements'); // переменная для контейнера где хранятся все карточки
-
-/* Блок Profile */
-
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
-const profileForm = document.querySelector('#popup-profile-form')
-
-/* Popup редактирования профия */
-
-const popupEditProfile = document.querySelector('#popup-edit-profile');
-const openEditPopup = document.querySelector('.profile__edit-button'); // Открытие popup изменения профиля
-const popupName = document.querySelector('#username');
-const popupForm = document.querySelector('#popup-profile-form');
-
-/* Popup добавления карточки */
-
-const openPopupNewCard = document.querySelector('.profile__add-button'); // Открытие popup новой карточки места
-const popupNewCard = document.querySelector('#popup-new-card'); // Popup новой карточки места
-const popupCardForm = document.querySelector('#popup-card-form'); // переменная формы с инпутами и кнопкой сохранить у PopUp-Card
-const popupSubmitButton = document.querySelector('#popup-save-btn');
-const popupCardTitle = document.querySelector('#title'); // переменная инпута текста PopUp-Card
-const popupCardImage = document.querySelector('#image'); // переменная инпута картинки PopUp-Card
-
-const popups = document.querySelectorAll('.popup'); // Для функции закрытия popup нажатием на фон
-const popupDescription = document.querySelector('#description');
-
-
-const popupImage = document.querySelector('.popup__image'); // переменная картинки модального окна
-const popupImageName = document.querySelector('.popup__description') // переменная названия картинки
-const popupPreviewPicture = document.querySelector('#popup-modal');
 
 /* Валидация */
 
@@ -70,7 +43,7 @@ popups.forEach((popupCloseOverlay) => {
         }
     });
 });
-    
+
 //Закрыть popup на Escape 
 
 function closePopupByEscape(evt) {
@@ -111,32 +84,30 @@ function handlePreviewPicture(link, name) {
     openPopup(popupPreviewPicture);
 }
 
-function createCard(popupObject) {
-    console.log(data)
+/* Вызываем класс и передаём данные */
 
+function createCard(popupObject) {
     const card = new Card(popupObject, '#template', handlePreviewPicture);
     const cardElement = card.createCard();
 
     return cardElement;
-
-    //elements.prepend(cardElement);
 }
 
-function renderElement() {
-    if () {
+/* Рендер карточки */
 
-    } else {
-
-    }
+function renderElement(item, listcard) {
+    listcard.prepend(item)
 };
+
+/* Рендер карточек */
 
 function render(renderCards) {
     renderCards.forEach((popupObject) => {
         const cardElement = createCard(popupObject);
-        renderElement(cardElement, elements, true);
+        renderElement(cardElement, elements);
     });
 }
-render(initialCards); 
+render(initialCards);
 
 /* Добавление новой карточки на страницу */
 
@@ -161,7 +132,9 @@ function submitCardButtonReaction(evt) {
     popupSubmitButton.setAttribute('disabled', true);
     popupSubmitButton.classList.add('popup__save-button_unactive');
 
+    const cardFromPopup = createCard(popupObject);
+    renderElement(cardFromPopup, elements);
+
     closePopup(popupNewCard);
-    createCard(popupObject);
     evt.target.reset();
 }

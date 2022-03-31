@@ -1,11 +1,11 @@
 export class Card {
-    constructor(data, cardTemplate, handlePrewievPicture) {
-        this._name = data.name
-        this._link = data.link
+    constructor(data, cardTemplate, handleImageClick) {
+        this._name = data.name;
+        this._link = data.link;
 
         this._cardTemplate = cardTemplate;
 
-        this._handlePrewievPicture = handlePrewievPicture;
+        this._handleImageClick = handleImageClick;
     }
 
     /* Находим template заготовки для карточек */
@@ -14,7 +14,7 @@ export class Card {
         return elementCard;
     }
 
-    createCard() {
+    generateCard() {
         this._newElement = this._getTemplate();
         this._element = this._newElement.querySelector('.element');
         this._elementTitle = this._newElement.querySelector('.element__title');
@@ -32,9 +32,9 @@ export class Card {
     }
 
     _setEventListeners() {
-        this._elementImage.addEventListener('click', () => {this._handlePrewievPicture(this._link, this._name)} );
-        this._elementLike.addEventListener('click', () => {this._handleLikeIcon()} );
-        this._deleteCard.addEventListener('click', () => {this._handleDeleteCard()} );
+        this._elementImage.addEventListener('click', () => this._handleImageClick() );
+        this._elementLike.addEventListener('click', () => this._handleLikeIcon() );
+        this._deleteCard.addEventListener('click', () => this._handleDeleteCard() );
     }
 
     _handleLikeIcon = () => {
@@ -43,6 +43,6 @@ export class Card {
 
     _handleDeleteCard() {
         this._newElement.remove();
-        this._newElement = null
+        //this._newElement = null
     };
 }

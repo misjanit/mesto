@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!--<link rel='stylesheet' href="pages/index.css">-->
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+
+    <header class="header">
+        <img src="<%=require('./images/logo.svg')%>" class="header__logo" alt="Логотип">
+    </header>
+
+    <main class="content" style="min-height: 72vh">
+
+        <section class="profile">
+            <div class="profile__info">
+                <img src="<%=require('./images/Avatar.jpg')%>" class="profile__avatar" alt="Аватар">
+                <div class="profile__card">
+                    <div class="profile__rename">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button"></button>
+                    </div>
+                    <p class="profile__description">Исследователь океана</p>
+                </div>
+                <button class="profile__add-button" type="button"></button>
+            </div>
+        </section>
+
+        <section class="elements">
+            <template id="template">
+                <article class="element">
+                    <div class="element__container">
+                        <button class="element__modal" id="open-modal" type="button">
+                            <img src="#" class="element__image" alt="">
+                        </button>
+                        <button id="delete-card" class="element__delete-container" type="button">
+                            <div class="element__trash"></div>
+                        </button>
+                    </div>
+                    <div class="element__description">
+                        <h2 class="element__title"></h2>
+                        <button class="element__like" type="button"></button>
+                    </div>
+                </article>
+            </template>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer__description">&copy; 2020 Mesto Russia</p>
+    </footer>
+
+    <div class="popup" id="popup-edit-profile">
+        <div class="popup__container">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <form id="popup-profile-form" class="popup__form" novalidate name="form" action="/">
+                <div class="popup__input-container">
+                    <input id="username" class="popup__input" type="text" placeholder="Имя" name="username"
+                        minlength="2" maxlength="40" required value="" />
+                    <span id="error-username" class="popup__input-error"></span>
+                </div>
+                <input id="description" class="popup__input" type="text" placeholder="Профессиональная деятельность"
+                    name="description" minlength="2" maxlength="200" required value="" />
+                <span id="error-description" class="popup__input-error"></span>
+                <button class="popup__save-button" type="submit">Сохранить</button>
+            </form>
+            <button class="popup__close-button" id="close-edit-popup" type="button"></button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-new-card">
+        <div class="popup__container">
+            <h3 class="popup__title">Новое место</h3>
+            <form class="popup__form" id="popup-card-form" name="form" novalidate action="/">
+                <div class="popup__input-container">
+                    <input id="title" class="popup__input" type="text" placeholder="Название" name="title" minlength="2"
+                        maxlength="40" required value="" />
+                    <span id="error-title" class="popup__input-error"></span>
+                </div>
+                <input id="image" class="popup__input" type="url" placeholder="Ссылка на картинку" name="image" required
+                    value="" />
+                <span id="error-image" class="popup__input-error"></span>
+                <button class="popup__save-button" type="submit">Сохранить</button>
+            </form>
+            <button id="close-card-popup" class="popup__close-button" type="button"></button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-modal">
+        <div class="popup__modal">
+            <div class="popup__container popup__container_modal">
+                <img src="#" class="popup__image" alt="">
+                <h3 class="popup__description"></h3>
+            </div>
+            <button class="popup__close-button" id="close-window-popup" type="button"></button>
+        </div>
+    </div>
+
+    <!-- <script src="./pages/index.js" type="module"></script> -->
+
+</body>
+
+</html>

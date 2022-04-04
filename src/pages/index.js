@@ -71,8 +71,8 @@ renderCards.renderItems();
 /* Отображение данных пользователя */
 
 const userInfo = new UserInfo({
-    selectorElementName: '.profile__name',
-    selectorElementDescription: '.profile__description'
+    elementName: '.profile__name',
+    elementDescription: '.profile__description'
 });
 
 /* Открытие модалки картинки */
@@ -91,8 +91,8 @@ const createPopupCardForm = new PopupWithForm('#popup-new-card', (data) => {
     addCardValidator.toggleButtonState()
 
     const popupObject = {
-        name: data['#title'],
-        link: data['#image'],
+        name: data.title,
+        link: data.image,
     };
     renderCards.addItem(createCard(popupObject));
 });
@@ -120,15 +120,3 @@ openPopupNewCard.addEventListener('click', () => {
     addCardValidator.toggleButtonState();
     createPopupCardForm.open();
 });
-
-
-
-
-
-
-
-
-
-
-
-

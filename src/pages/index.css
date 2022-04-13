@@ -3,6 +3,7 @@
 
 @import url(../blocks/page/page.css);
 
+/* Общие классы для попапов */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -14,20 +15,31 @@
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__save-button/_unactive/popup__save-button_unactive.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
-
 @import url(../blocks/popup/__input-container/popup__input-container.css);
 
+/* Модалка изображения */
 @import url(../blocks/popup/__modal/popup__modal.css);
 @import url(../blocks/popup/__container/_modal/popup__container_modal.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__description/popup__description.css);
 
+/* Попап удаления карточки */
+@import url(../blocks/popup/__container/_delete/popup__container_delete.css);
+@import url(../blocks/popup/__delete-btn/popup__delete-btn.css);
+
+/* Попап смены аватарки */
+@import url(../blocks/popup/__container/_change-avatar/popup__container_change-avatar.css);
+@import url(../blocks/popup/__change-avatar-btn/popup__change-avatar-btn.css);
+
+/* Классы шапки */
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
+/* Классы профиля */
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__card/profile__card.css);
+@import url(../blocks/profile/__avatar-container/profile__avatar-container.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__rename/profile__rename.css);
 @import url(../blocks/profile/__name/profile__name.css);
@@ -35,20 +47,23 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 
+/* Класс template карточек */
 @import url(../blocks/elements/elements.css);
 
+/* Классы карточки */
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__description/element__description.css);
 @import url(../blocks/element/__title/element__title.css);
+@import url(../blocks/element/__like-container/element__like-container.css);
 @import url(../blocks/element/__like/element__like.css);
 @import url(../blocks/element/__like/_active/element__like_active.css);
-
+@import url(../blocks/element/__like-number/element__like-number.css);
 @import url(../blocks/element/__modal/element__modal.css);
-
 @import url(../blocks/element/__container/element__container.css);
 @import url(../blocks/element/__delete-container/element__delete-container.css);
 @import url(../blocks/element/__trash/element__trash.css);
 
+/* Футер */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__description/footer__description.css);

@@ -1,4 +1,4 @@
-.popup__save-button {
+.popup__change-avatar-btn {
     max-width: 358px;
     max-height: 50px;
     display: block;
@@ -19,15 +19,6 @@
     transition: .3s ease;
 }
 
-.popup__save-button:hover {
+.popup__change-avatar-btn:hover {
     opacity: 0.8;
-}
-
-@media screen and (max-width: 600px) {
-    .popup__save-button {
-        max-width: 238px;
-        max-height: 46px;
-        font-size: 14px;
-        line-height: 17px;
-    }
 }

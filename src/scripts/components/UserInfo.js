@@ -7,15 +7,21 @@ export default class UserInfo {
     /* Возвращает объект с данными пользователя */
     getUserInfo() {
         return {
-            name: this._elementName.textContent,
+            username: this._elementName.textContent,
             description: this._elementDescription.textContent
         };
     }
 
     /* Принимает новые данные и добавляет их в попап */
-    setUserInfo(data) {
-        this._elementName.textContent = data.username;
-        this._elementDescription.textContent = data.description;
+    setUserInfo(username, description) {
+        this._elementName.textContent = username;
+        this._elementDescription.textContent = description;
+    }
+
+    /* Меняем аватар */
+
+    setUserAvatar() {
+        
     }
 }
 

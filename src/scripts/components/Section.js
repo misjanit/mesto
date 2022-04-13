@@ -7,13 +7,19 @@ export default class Section {
 
         this._containerSelector = document.querySelector(containerSelector);
     }
+
+    /* Отрисовываем */
+
     renderItems() {
         this._items.forEach((item) => {
-            this._renderer(item);
+            this.addItem(item);
         });
     }
 
+    /* Показываем */
+    
     addItem(item) {
-        this._containerSelector.prepend(item);
+        const card = this._renderer(item);
+        this._containerSelector.append(card);
     }
 }

@@ -29,8 +29,8 @@ import UserInfo from '../scripts/components/UserInfo.js';
 /* Переменные */
 
 import {
-    profileForm, openEditPopup, popupName,
-    openPopupNewCard, popupCardForm, profileAvatarUpd, popupDescription
+    profileForm, openEditPopup,
+    openPopupNewCard, popupCardForm, profileAvatarUpd,
 } from '../scripts/constant.js';
 
 /* CSS стили */
@@ -155,10 +155,10 @@ const popupWithImage = new PopupWithImage('#popup-modal');
 
 const createPopupProfileForm = new PopupWithForm('#popup-edit-profile', (data) => {
     createPopupCardForm.toggleSavingSubmitLoading(true);
-    const {name, description} = data;
-    api.editProfile(name, description)
+    const {username, description} = data;
+    api.editProfile(username, description)
         .then(() => {
-            userInfo.setUserInfo(name, description);
+            userInfo.setUserInfo(username, description);
             createPopupProfileForm.close();
         })
         .catch((err) => console.log(err))
@@ -226,6 +226,11 @@ openPopupNewCard.addEventListener('click', () => {
     createPopupCardForm.open();
 });
 
+/* Открытие попапа аватара */
+profileAvatarUpd.addEventListener('click', () => {
+    avatarProfileEdit.open();
+})
+
 /* Слушатели */
 
 createPopupProfileForm.setEventListeners();
@@ -234,6 +239,4 @@ popupWithImage.setEventListeners();
 popupDeleteConfirm.setEventListeners();
 avatarProfileEdit.setEventListeners();
 
-profileAvatarUpd.addEventListener('click', () => {
-    avatarProfileEdit.open();
-})
+

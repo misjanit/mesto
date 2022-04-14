@@ -4,8 +4,6 @@ export class Api {
         this._headers = headers;
     }
 
-    // `${this._baseUrl}/cards/`
-
     _checkStatus(res) {
         if (res.ok) {
             return res.json();
@@ -35,7 +33,8 @@ export class Api {
                 name,
                 about,
             }),
-        }).then(this._checkStatus);
+        })
+            .then(this._checkStatus);
     }
 
     addCard(name, link) {
@@ -65,7 +64,7 @@ export class Api {
         })
             .then(this._checkStatus);
     }
-    
+
     setLike(id) {
         return fetch(`${this._baseUrl}/cards/${id}/likes`, {
             method: 'PUT',

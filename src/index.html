@@ -18,9 +18,8 @@
 
         <section class="profile">
             <div class="profile__info">
-                <button class="profile__avatar-container">
+                <button class="profile__avatar-container" type="button">
                     <img src="<%=require('./images/Avatar.jpg')%>" class="profile__avatar" alt="Аватар">
-                    
                 </button>
                 <div class="profile__card">
                     <div class="profile__rename">
@@ -111,7 +110,7 @@
         <div class="popup__container popup__container_delete">
             <h3 class="popup__title">Вы уверены?</h3>
             <form class="popup__form">
-            <button class="popup__save-button" type="submit">Да</button>
+                <button class="popup__save-button" type="submit">Да</button>
             </form>
             <button class="popup__close-button" type="button"></button>
         </div>
@@ -122,11 +121,11 @@
             <h3 class="popup__title">Обновить аватар</h3>
             <form class="popup__form">
                 <div class="popup__input-container">
-                    <input id="" class="popup__input" type="" placeholder="Ссылка на изображение" name="" minlength="2"
+                    <input id="" class="popup__input" type="url" placeholder="Ссылка на изображение" name="" minlength="2"
                         maxlength="40" required value="" />
                     <span id="" class="popup__input-error"></span>
                 </div>
-                <button class="popup__save-button" type="submit" >Сохранить</button>
+                <button class="popup__save-button" type="submit">Сохранить</button>
             </form>
             <button class="popup__close-button" type="button"></button>
         </div>

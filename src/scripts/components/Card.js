@@ -7,7 +7,6 @@ export class Card {
         this._likes = data.likes;
         this._ownerId = data.ownerId;
 
-        console.log(data);
 
         this._cardTemplate = cardTemplate;
         this._handleImageClick = handleImageClick;
@@ -62,8 +61,7 @@ export class Card {
 
         this.likeToggle(this._likes);
         this._setEventListeners();
-        
-
+    
         return this._newElement; // возвращает готовую карточку
     }
 

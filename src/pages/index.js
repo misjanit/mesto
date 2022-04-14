@@ -30,7 +30,7 @@ import UserInfo from '../scripts/components/UserInfo.js';
 
 import {
     profileForm, openEditPopup, popupName,
-    openPopupNewCard, popupCardForm, popupDescription
+    openPopupNewCard, popupCardForm, profileAvatarUpd, popupDescription
 } from '../scripts/constant.js';
 
 /* CSS стили */
@@ -115,11 +115,13 @@ function createCard(item) {
                     .then((res) => {
                         card.likeToggle(res.likes);
                     })
+                    .catch((err) => console.log(err))
             } else {
                 api.setLike(id)
                     .then((res) => {
                         card.likeToggle(res.likes)
                     })
+                    .catch((err) => console.log(err))
             }
         }
     )
@@ -159,6 +161,7 @@ const createPopupProfileForm = new PopupWithForm('#popup-edit-profile', (data) =
             userInfo.setUserInfo(name, description);
             createPopupProfileForm.close();
         })
+        .catch((err) => console.log(err))
         .finally(() => {
             createPopupProfileForm.toggleSavingSubmitLoading(false);
         })
@@ -181,6 +184,7 @@ const createPopupCardForm = new PopupWithForm('#popup-new-card', (data) => {
             });
             createPopupCardForm.close();
         })
+        .catch((err) => console.log(err))
         .finally(() => {
             createPopupCardForm.toggleSavingSubmitLoading(false);
         })
@@ -199,6 +203,22 @@ openEditPopup.addEventListener('click', () => {
     createPopupProfileForm.open();
 });
 
+/* Редактирование аватара */
+
+const avatarProfileEdit = new PopupWithForm('#popup-change-avatar', (data) => {
+    avatarProfileEdit.toggleSavingSubmitLoading(true);
+    api.editAvatar(data)
+        .then((res) => {
+            userInfo.setUserAvatar(res.avatar);
+            avatarProfileEdit.close();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+            avatarProfileEdit.toggleSavingSubmitLoading(false);
+        })
+})
+
+
 /* Открытие попапа карточки */
 
 openPopupNewCard.addEventListener('click', () => {
@@ -212,3 +232,8 @@ createPopupProfileForm.setEventListeners();
 createPopupCardForm.setEventListeners();
 popupWithImage.setEventListeners();
 popupDeleteConfirm.setEventListeners();
+avatarProfileEdit.setEventListeners();
+
+profileAvatarUpd.addEventListener('click', () => {
+    avatarProfileEdit.open();
+})

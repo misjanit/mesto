@@ -17,13 +17,14 @@ export default class PopupDeleteConfirm extends Popup {
         if (isLoading) {
             this._submitButton.textContent = 'Удаление...';
         } else {
-            this._submitButton.textContent = 'nothing';
+            this._submitButton.textContent = this._text;
         }
     }
 
     setEventListeners() {
         super.setEventListeners();
-        this._popupForm.addEventListener('submit', () => {
+        this._popupForm.addEventListener('submit', (event) => {
+            event.preventDefault();
             this._formSubmit();
         })
     }

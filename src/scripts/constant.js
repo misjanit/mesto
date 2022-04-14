@@ -5,7 +5,8 @@ export const elements = document.querySelector('.elements'); // переменн
 export const profileName = document.querySelector('.profile__name');
 export const profileDescription = document.querySelector('.profile__description');
 export const profileForm = document.querySelector('#popup-profile-form')
-
+export const profileAvatarUpd = document.querySelector('.profile__avatar-container');
+ 
 /* Popup редактирования профия */
 
 export const popupEditProfile = document.querySelector('#popup-edit-profile');

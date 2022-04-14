@@ -33,11 +33,9 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name,
-                about
-            })
-        }
-            .then(this._checkStatus),
-        )
+                about,
+            }),
+        }).then(this._checkStatus);
     }
 
     addCard(name, link) {

@@ -3,7 +3,7 @@ import Popup from './Popup.js';
 export default class PopupWithForm extends Popup {
     constructor(popupSelector, callBackSubmitForm) {
         super(popupSelector);
-        this._newSubmitHandler = callBackSubmitForm;
+        this._callBackSubmitForm = callBackSubmitForm;
         this._popupForm = this._popupSelector.querySelector('.popup__form');
         this._inputList = [...this._popupForm.querySelectorAll('.popup__input')];
         this._submitForm = this._submitForm.bind(this);
@@ -34,7 +34,7 @@ export default class PopupWithForm extends Popup {
 
     _submitForm(evt) {
         evt.preventDefault();
-        this._newSubmitHandler( this._getInputValues() );
+        this._callBackSubmitForm(this._getInputValues());
         this.close();
     }
 
@@ -52,8 +52,8 @@ export default class PopupWithForm extends Popup {
         this._popupForm.reset();
     }
 
-    changeSubmitHandler(newSubmitHandler) {
-        this._handleSubmit = newSubmitHandler;
+    changeSubmitHandler(submitHandler) {
+        this._callBackSubmitForm = submitHandler;
     }
 
     /* Меняем текст на кнопке при нажатии */

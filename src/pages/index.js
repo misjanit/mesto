@@ -39,7 +39,7 @@ import '../pages/index.css';
 
 /* вызов класса Api */
 
-import { api } from '../scripts/Api.js';
+import { api } from '../scripts/components/Api.js';
 
 /* Подтверждение удаления */
 

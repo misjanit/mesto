@@ -1,7 +1,8 @@
 export default class UserInfo {
-    constructor( { elementName, elementDescription } ) {
+    constructor( { elementName, elementDescription, elementAvatar } ) {
         this._elementName = document.querySelector(elementName);
         this._elementDescription = document.querySelector(elementDescription);
+        this._elementAvatar = document.querySelector(elementAvatar);
     }
 
     /* Возвращает объект с данными пользователя */
@@ -20,8 +21,8 @@ export default class UserInfo {
 
     /* Меняем аватар */
 
-    setUserAvatar() {
-        
+    setUserAvatar(avatar) {
+        this._elementAvatar.src = avatar;
     }
 }
 

@@ -74,11 +74,11 @@ export class Api {
     }
 
     editAvatar(data) {
-        return fetch(`${this._baseUrl}users/me/avatar`, {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                avatar: data['avatar-link']
+                avatar: data['avatarLink'],
             })
         })
             .then(this._checkStatus);

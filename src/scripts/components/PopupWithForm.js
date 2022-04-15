@@ -35,7 +35,6 @@ export default class PopupWithForm extends Popup {
     _submitForm(evt) {
         evt.preventDefault();
         this._callBackSubmitForm(this._getInputValues());
-        this.close();
     }
 
     /* слушатель на сабмит и закрытие формы */

@@ -31,6 +31,7 @@ import UserInfo from '../scripts/components/UserInfo.js';
 import {
     profileForm, openEditPopup,
     openPopupNewCard, popupCardForm, profileAvatarUpd,
+    popupChangeAvatarForm
 } from '../scripts/constant.js';
 
 /* CSS стили */
@@ -78,9 +79,11 @@ Promise.all(initialDataArray)
 
 const editProfileValidator = new FormValidator(settingsList, profileForm)
 const addCardValidator = new FormValidator(settingsList, popupCardForm)
+const editAvatarValidator = new FormValidator(settingsList, popupChangeAvatarForm);
 
-editProfileValidator.enableValidation()
-addCardValidator.enableValidation()
+editProfileValidator.enableValidation();
+addCardValidator.enableValidation();
+editAvatarValidator.enableValidation();
 
 /* Вызываем класс и передаём данные */
 
@@ -180,7 +183,8 @@ const createPopupCardForm = new PopupWithForm('#popup-new-card', (data) => {
                 link: res.link,
                 likes: res.likes,
                 id: res._id,
-                ownerId: res.ownerId,
+                userId: userId,
+                ownerId: res.owner._id,
             });
             createPopupCardForm.close();
         })
@@ -207,6 +211,7 @@ openEditPopup.addEventListener('click', () => {
 
 const avatarProfileEdit = new PopupWithForm('#popup-change-avatar', (data) => {
     avatarProfileEdit.toggleSavingSubmitLoading(true);
+    console.log(data);
     api.editAvatar(data)
         .then((res) => {
             userInfo.setUserAvatar(res.avatar);

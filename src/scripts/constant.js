@@ -29,3 +29,6 @@ export const popupDescription = document.querySelector('#description');
 export const popupImage = document.querySelector('.popup__image'); // переменная картинки модального окна
 export const popupImageName = document.querySelector('.popup__description') // переменная названия картинки
 export const popupPreviewPicture = document.querySelector('#popup-modal');
+
+/* Аватар */
+export const popupChangeAvatarForm = document.querySelector('#popup-change-avatar-form');

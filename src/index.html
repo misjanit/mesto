@@ -88,7 +88,7 @@
                     <span id="error-title" class="popup__input-error"></span>
                 </div>
                 <input id="image" class="popup__input" type="url" placeholder="Ссылка на картинку" name="image" required
-                    value="" />
+                    value=""/>
                 <span id="error-image" class="popup__input-error"></span>
                 <button class="popup__save-button" type="submit">Сохранить</button>
             </form>
@@ -119,11 +119,11 @@
     <div class="popup" id="popup-change-avatar">
         <div class="popup__container popup__container_change-avatar">
             <h3 class="popup__title">Обновить аватар</h3>
-            <form class="popup__form">
+            <form class="popup__form" id="popup-change-avatar-form" name="form" novalidate action="/">
                 <div class="popup__input-container">
-                    <input id="" class="popup__input" type="url" placeholder="Ссылка на изображение" name="" minlength="2"
-                        maxlength="40" required value="" />
-                    <span id="" class="popup__input-error"></span>
+                    <input id="avatarLink" class="popup__input" type="url" placeholder="Ссылка на картинку" name="avatarLink" required
+                    value="" />
+                    <span id="error-avatarLink" class="popup__input-error"></span>
                 </div>
                 <button class="popup__save-button" type="submit">Сохранить</button>
             </form>

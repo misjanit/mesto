@@ -1,11 +1,11 @@
 import Popup from './Popup.js';
 
 export default class PopupDeleteConfirm extends Popup {
-    constructor(popupSelector, formSubmit) {
-        super(popupSelector);
+    constructor(popupElement, formSubmit) {
+        super(popupElement);
         this._formSubmit = formSubmit;
-        this._popupForm = this._popupSelector.querySelector('.popup__form');
-        this._submitButton = this._popupSelector.querySelector('.popup__save-button');
+        this._popupForm = this._popupElement.querySelector('.popup__form');
+        this._submitButton = this._popupElement.querySelector('.popup__save-button');
         this._text = this._submitButton.textContent;
     }
 

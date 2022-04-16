@@ -211,7 +211,6 @@ openEditPopup.addEventListener('click', () => {
 
 const avatarProfileEdit = new PopupWithForm('#popup-change-avatar', (data) => {
     avatarProfileEdit.toggleSavingSubmitLoading(true);
-    console.log(data);
     api.editAvatar(data)
         .then((res) => {
             userInfo.setUserAvatar(res.avatar);
@@ -233,6 +232,7 @@ openPopupNewCard.addEventListener('click', () => {
 
 /* Открытие попапа аватара */
 profileAvatarUpd.addEventListener('click', () => {
+    editAvatarValidator.toggleButtonState();
     avatarProfileEdit.open();
 })
 

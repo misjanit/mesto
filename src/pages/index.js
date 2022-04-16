@@ -140,8 +140,6 @@ const renderCards = new Section(
     '.elements'
 );
 
-renderCards.renderItems();
-
 /* Отображение данных пользователя */
 
 const userInfo = new UserInfo({

@@ -189,7 +189,7 @@ const popupDeleteConfirm = new PopupDeleteConfirm('#popup-agreement-to-delete');
 /* Открытие попапа профиля */
 
 openEditPopup.addEventListener('click', () => {
-    editProfileValidator.toggleButtonState();
+    editProfileValidator.resetErrors();
 
     const data = userInfo.getUserInfo();
     createPopupProfileForm.setInputValues(data);
@@ -216,13 +216,13 @@ const avatarProfileEdit = new PopupWithForm('#popup-change-avatar', (data) => {
 /* Открытие попапа карточки */
 
 openPopupNewCard.addEventListener('click', () => {
-    addCardValidator.toggleButtonState();
+    addCardValidator.resetErrors();
     createPopupCardForm.open();
 });
 
 /* Открытие попапа аватара */
 profileAvatarUpd.addEventListener('click', () => {
-    editAvatarValidator.toggleButtonState();
+    editAvatarValidator.resetErrors();
     avatarProfileEdit.open();
 })
 

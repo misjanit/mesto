@@ -74,8 +74,7 @@ export class Card {
     _checkCardOwner() {
         if (this._userId !== this._ownerId) {
             this._elementTrashBtn.style.display = 'none';
-        }
-            
+        } 
     }
 
     handleDeleteCard() {

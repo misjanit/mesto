@@ -11,7 +11,7 @@ export default class Section {
     /* Отрисовываем */
 
     renderItems(items) {
-        this._items.forEach((item) => {
+        items.forEach((item) => {
             this.addItem(item);
         });
     }

@@ -58,22 +58,13 @@ let userId;
 
 Promise.all(initialDataArray)
     .then(([userData, cards]) => {
-        userId = userData._id;
         userInfo.setUserInfo(userData.name, userData.about);
         userInfo.setUserAvatar(userData.avatar);
         userId = userData._id;
-
-        cards.forEach((data) => {
-            renderCards.addItem({
-                name: data.name,
-                link: data.link,
-                likes: data.likes,
-                id: data._id,
-                userId: userId,
-                ownerId: data.owner._id,
-            })
-        })
+        renderCards.renderItems(cards);
     })
+    .catch((err) => console.log(err));
+
 
 /* Валидация */
 
@@ -90,6 +81,7 @@ editAvatarValidator.enableValidation();
 function createCard(item) {
     const card = new Card(
         item,
+        userId,
         '#template',
         () => { popupWithImage.open(item) },
 
@@ -134,8 +126,8 @@ function createCard(item) {
 
 /* Отрисовываем карточку */
 
-const renderCards = new Section(
-    { items: [],
+const renderCards = new Section({
+    items: [],
     renderer: createCard },
     '.elements'
 );
@@ -155,7 +147,7 @@ const popupWithImage = new PopupWithImage('#popup-modal');
 /* Класс для работы с профилем */
 
 const createPopupProfileForm = new PopupWithForm('#popup-edit-profile', (data) => {
-    createPopupCardForm.toggleSavingSubmitLoading(true);
+    createPopupProfileForm.toggleSavingSubmitLoading(true);
     const {username, description} = data;
     api.editProfile(username, description)
         .then(() => {

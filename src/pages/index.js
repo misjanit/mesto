@@ -172,7 +172,7 @@ const createPopupCardForm = new PopupWithForm('#popup-new-card', (data) => {
                 name: res.name,
                 link: res.link,
                 likes: res.likes,
-                id: res._id,
+                _id: res._id,
                 userId: userId,
                 owner: res.owner,
             });
